@@ -1,9 +1,9 @@
 const employees = [
-      { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 50000 },
-      { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 45000 },
-      { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 60000 },
-      { id: 4, name: 'James Bond', age: 30, department: 'Finance', salary: 70000 },
-      { id: 5, name: 'Freddy Kouchami', age: 35, department: 'IT', salary: 170000 },
+      { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 50000 , specialisation : 'Javascript' },
+      { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 45000 , specialisation : 'Rust' },
+      { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 60000 , specialisation : 'Python' },
+      { id: 4, name: 'James Bond', age: 30, department: 'Finance', salary: 70000 , specialisation : 'Rust' },
+      { id: 5, name: 'Freddy Kouchami', age: 35, department: 'IT', salary: 170000 , specialisation : 'C++' },
       //... More employee records can be added here
     ];
 
@@ -36,4 +36,13 @@ function findEmployeeById(employeeId) {
        }
    }
 
-   
+
+function findEmployeeBySpecialisation(employeeSpecialisation) {
+    const foundEmployee = employees.find(employee => employee.specialisation === employeeJavascript);
+    if (foundEmployee) {
+    document.getElementById('employeesDetails').innerHTML =`<p>${foundEmployee.specialisation}: ${foundEmployee.name}: ${foundEmployee.name} - ${foundEmployee.department} - ${foundEmployee.salary}</p>`;
+    }
+    else{
+      document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this Spec';
+     }
+ }
