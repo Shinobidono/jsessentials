@@ -5,6 +5,16 @@ let score = 0;
 let timeLeft = 30;
 let gameInterval;
 
+function shuffle(colors) {
+  for (let i = colors.length - 1; i > 0; i--) {
+    // Pick a random index from 0 to i
+    const j = Math.floor(Math.random() * (i + 1));
+    // Swap elements colors[i] and colors[j]
+    [colors[i], colors[j]] = [colors[j], colors[i]];
+  }
+  return colors;
+}
+
 const startbtn = document.getElementById('startbtn');
 const gameContainer = document.getElementById('game-container');
 const scoreElement = document.getElementById('score');
@@ -77,4 +87,4 @@ function startGameTimer(timeLeft) {
             }, 1000);
 }
 
-   startbtn.addEventListener('click', startGame);
+startbtn.addEventListener('click', startGame);
